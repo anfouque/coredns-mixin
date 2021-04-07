@@ -188,7 +188,7 @@ local singlestat = grafana.singlestat;
           format='short',
           min=0,
         )
-        .addTarget(prometheus.target('go_goroutines{{%(clusterLabel)s="$cluster", %(corednsSelector)s,%(instanceLabel)s=~"$instance"}' % $._config, legendFormat='{%(instanceLabel)s}}' % $._config));
+        .addTarget(prometheus.target('go_goroutines{%(clusterLabel)s="$cluster", %(corednsSelector)s,%(instanceLabel)s=~"$instance"}' % $._config, legendFormat='{%(instanceLabel)s}}' % $._config));
 
       dashboard.new(
         '%(dashboardNamePrefix)sCoreDNS' % $._config.grafana,
